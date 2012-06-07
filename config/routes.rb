@@ -3,6 +3,7 @@ Dashboard::Application.routes.draw do
   get "pages/new"
   get "pages/show"
   get "pages/users_quick_stats"
+  get "pages/storage_quick_stats"
 
   match 'pages/change' => 'pages#change', :via=>'POST'
 

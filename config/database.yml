@@ -18,3 +18,17 @@ production:
   database: db/production.sqlite3
   pool: 5
   timeout: 5000
+
+redshirt_inception:
+  adapter: mysql2
+  database: inception
+  username: oxygenread
+  password: oxygenincloud
+  host: qa-redshirt1.ceus5ioudas9.us-east-1.rds.amazonaws.com
+
+redshirt_storagecloud:
+  adapter: mysql2
+  database: storagecloud 
+  username: oxygenread
+  password: oxygenincloud
+  host: qa-redshirt1.ceus5ioudas9.us-east-1.rds.amazonaws.com

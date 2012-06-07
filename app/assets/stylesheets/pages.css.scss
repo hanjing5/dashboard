@@ -3,11 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #StatsContainer{
+    table{
+        width:100%;
+        text-align: center;
+        vertical-align:bottom;
+    }
+    text-align:center;
 
-    margin: {
-
-        right: auto;
-        left: auto;
+    h10{
+        font-size:200px;
     }
 }
 

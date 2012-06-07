@@ -1,4 +1,7 @@
-= render 'highchart', :payload => @payload, :title=>@title, :type=>'user', :daytoday=>@daytoday
+= render 'highchart', :payload => @payload,:title=>@title, :storage=>'true',:type=>'storage', :daytoday => @daytoday
+
+%br
+%hr
 
 #StatsContainer
   %table
@@ -11,6 +14,8 @@
             = Date::MONTHNAMES[@max_value_pair[0]]
           - else
             = @max_value_pair[0]
+
+          
       %td
         %h1
-          = @max_value_pair[1]
+          = number_to_human_size(@max_value_pair[1], :precision=>5)

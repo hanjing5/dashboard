@@ -10,7 +10,7 @@ $(function () {
                 marginBottom: 25
             },
             title: {
-                text: '<%= @title %> User Sign Ups',
+                text: '<%= @title %> Stats',
                 x: -20 //center
             },
             subtitle: {
@@ -19,10 +19,14 @@ $(function () {
             },
             xAxis: {
 categories: [
-<% payload.each do |c, v| %>        
-    "<%= c %>",
-<% end %>
-]
+            <% payload.each do |c, v| %>        
+                <%if title == 'Monthly' %>
+                    "<%= Date::MONTHNAMES[c] %>",
+                <% else %>
+                    "<%= c %>",
+                <% end %>
+            <% end %>
+            ]
             },
             yAxis: {
                 title: {
@@ -37,7 +41,14 @@ categories: [
             tooltip: {
                 formatter: function() {
                         return '<b>'+ this.series.name +'</b><br/>'+
-                        this.x +': '+ this.y;
+                            this.x +': '+ 
+                            <% if daytoday %>
+                                this.y + '%';
+                            <% elsif type == 'storage' %>
+                            bytesToSize(this.y);
+                            <% else %>
+                                    this.y;
+                        <%end %>
                 }
             },
             legend: {
@@ -49,16 +60,35 @@ categories: [
                 borderWidth: 0
             },
             series: [{
-name: "<%= @title %>",
+name: "<%= title %>",
             data: [
-                <% payload.each do |m, v| %>
-                    <%= v %>, 
-                <%end %>
+                <% if daytoday %>
+                    <% process(payload).each do |m, v| %>
+                        <% if v[2] > 10000 %>
+                            <%= 0 %> ,
+                        <% else %>
+                        <%= v[2] * 100 %>,
+                    <% end %>
+
+                    <%end %>
+                <% else %>
+                    
+                    <% payload.each do |m, v| %>
+                        <%= v %>, 
+                    <%end %>
+                <% end %>
                 ]
             }]
         });
     });
     
 });
+
+function bytesToSize(bytes) {
+    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes == 0) return 'n/a';
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+};
         </script>
         <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>

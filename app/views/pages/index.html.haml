@@ -1,8 +1,9 @@
 %h1 Welcome to Chronos
 #ChartContainer
-  = render 'highchart', :payload => @weekly, :title=>'Weekly'
+  = render 'highchart', :payload => @monthly, :title=>'Monthly',:type => 'user',:daytoday=>@daytoday
 
 %br
+%hr
 #QuickContainer
   %table
     %tr
