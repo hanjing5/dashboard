@@ -1,0 +1,40 @@
+#StatsContainer
+  %table
+    %tr
+      %td
+        Total Users Count
+      %td
+        %h1
+          = @total_users
+      %td
+        %h1
+          = @total_storage
+    %tr
+      %td
+        Growth from Yesterday:
+      %td
+        %h1
+          = number_to_percentage @yesterday_percentage
+    %tr
+      %td
+        Growth last 7 days:
+      %td
+        %h1
+          = number_to_percentage @week_percentage
+
+    %tr
+      %td
+        Growth last 30 days:
+      %td
+        %h1
+          = number_to_percentage @month_percentage
+        
+    %tr
+      %td 
+        Growth last 365 days:
+      %td
+        %h1
+          = number_to_percentage @year_percentage
+        
+
+

@@ -1,0 +1,24 @@
+%h1 Welcome to Chronos
+#ChartContainer
+  = render 'highchart', :payload => @weekly, :title=>'Weekly'
+
+%br
+#QuickContainer
+  %table
+    %tr
+      %td
+        Total number of users:
+      %td
+        %h1
+          =@total_users
+      %td
+        Users added last month:
+      %td
+        %h1
+          =@this_month
+      %td
+        Last month growth
+      %td
+        %h1
+          =number_to_percentage @month_percentage, :precision=>2
+
