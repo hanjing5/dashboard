@@ -32,3 +32,10 @@ redshirt_storagecloud:
   username: oxygenread
   password: oxygenincloud
   host: qa-redshirt1.ceus5ioudas9.us-east-1.rds.amazonaws.com
+  
+data1_networkid:
+  adapter: mysql2
+  database: networkid
+  username: oxygenread
+  password: oxygenincloud
+  host: qa-data1.ceus5ioudas9.us-east-1.rds.amazonaws.com
