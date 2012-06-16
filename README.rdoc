@@ -1,3 +1,16 @@
 run 'bundle install'
-
 this app uses rails's 'thin' server
+
+To use the production database, change the database.yml records to make sure you are pointing to the right databases, with the right loggins
+
+1. Compare to average/medium
+- compare to the average referal rate, how many activations we have
+
+2. Select the range of date and averages for those
+
+3. new activation vs addition
+new users in a new account for themselves
+existing company adding new users to existing account
+
+oct. 23nd to day (data range)
+

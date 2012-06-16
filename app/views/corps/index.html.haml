@@ -1,0 +1,19 @@
+%table{:class=>'table'}
+  %tr
+    %td
+      %b
+        Activation Code
+    %td
+      %b
+        Description
+    %td
+      %b
+        Number of Uses
+  -@payload.each do |p|
+    %tr
+      %td
+        =link_to p.activationCode, monthly_corp_path(p.activationCode)
+      %td
+        =p.description
+      %td
+        =p.numberOfUses

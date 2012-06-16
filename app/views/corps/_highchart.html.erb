@@ -20,11 +20,7 @@ $(function () {
             xAxis: {
 categories: [
             <% payload.each do |c, v| %>        
-                <%if title == 'Monthly' %>
-                    "<%= Date::MONTHNAMES[c].to_s[0..2]%>",
-                <% else %>
                     "<%= c %>",
-                <% end %>
             <% end %>
             ]
             },

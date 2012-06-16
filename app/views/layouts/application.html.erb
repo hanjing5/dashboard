@@ -38,8 +38,24 @@
                 <li><%= link_to 'Weekly', users_path('weekly')%></a></li>
                 <li><%= link_to 'Monthly', users_path('monthly')%></a></li>
                 <li class="divider"></li>
+                <li><%= link_to 'Source', users_path('source')%></a></li>
+                <li class="divider"></li>
                 <li class="nav-header">Quick Access</li>
                 <li><%= link_to 'Fast Stats',users_path('quick')%></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Activation Codes<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="divider"></li>
+                <li><%= link_to 'All Codes', corps_path%></a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Enterprise Referrals<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="divider"></li>
+                <li><%= link_to 'All Enterprise', enterprises_index_path%></a></li>
               </ul>
             </li>
           </ul>

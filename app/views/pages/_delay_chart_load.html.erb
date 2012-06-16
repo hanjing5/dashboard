@@ -1,0 +1,5 @@
+<script>
+    $(document).ready(function() {
+         $('#ChartContainer').append("<%=  escape_javascript(render 'highchart', :payload => @monthly, :title=>'Monthly',:type => 'user',:daytoday=>@daytoday) %>");
+      });
+</script>

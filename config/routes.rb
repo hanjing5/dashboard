@@ -1,15 +1,35 @@
 Dashboard::Application.routes.draw do
+
+  get "enterprises/index"
+
+  get "enterprises/show"
+
   get "pages/index"
   get "pages/new"
   get "pages/show"
   get "pages/users_quick_stats"
   get "pages/storage_quick_stats"
 
+  resources :corps, :only=>[:index, :show] do
+    member do
+        get 'daily'
+        get 'weekly'
+        get 'monthly'
+    end
+  end
+  resource :enterprises, :only=>[:index, :show] do
+    member do 
+      match ':id/daily' => 'enterprises#daily',:as => 'daily'
+      match ':id/weekly' => 'enterprises#weekly',:as => 'weekly'
+      match ':id/monthly' => 'enterprises#monthly',:as => 'monthly'
+    end
+  end
   match 'pages/change' => 'pages#change', :via=>'POST'
 
   match 'users/:id' => 'pages#users',:as => 'users'
   
   match 'storage/:id' => 'pages#storage', :as => 'storage'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

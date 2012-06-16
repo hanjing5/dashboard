@@ -1,0 +1,21 @@
+%h1 Enterprises#index
+%h3 All Enterprise
+
+%table{:class=>'table'}
+  %tr
+    %td
+      %b
+        Name
+    %td
+      %b
+        Logged in From
+    %td
+      %b
+        Referral Count
+  -@payload.each do |k, v|
+    %tr
+      %td
+        =link_to k, monthly_enterprises_path(k)
+      %td
+      %td
+        =v
